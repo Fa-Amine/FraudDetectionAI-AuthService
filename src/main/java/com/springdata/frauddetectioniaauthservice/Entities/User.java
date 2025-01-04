@@ -3,31 +3,38 @@ package com.springdata.frauddetectioniaauthservice.Entities;
 
 import jakarta.persistence.*;
 
+
+
 @Entity
+@Table(name = "users",uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(unique=true)
+    
     private String email;
     @Column
     private String password;
     @Column
-    private String firstName;
-    @Column
-    private String lastName;
+    private String fullName;
     @Column
     private String role;
 
     public User() {
     }
 
-    public User(Long id, String email, String password, String firstName, String lastName, String role) {
+    public User(Long id, String email, String password, String fullName,  String role) {
         this.id = id;
         this.email = email;
         this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.fullName = fullName;
+        this.role = role;
+    }
+
+    public User(String email, String fullname, String password, String role) {
+        this.email = email;
+        fullName = fullname;
+        this.password = password;
         this.role = role;
     }
 
@@ -56,19 +63,11 @@ public class User {
     }
 
     public String getFirstName() {
-        return firstName;
+        return fullName;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.fullName = firstName;
     }
 
     public String getRole() {

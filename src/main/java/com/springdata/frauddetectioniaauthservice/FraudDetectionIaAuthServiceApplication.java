@@ -8,6 +8,7 @@ public class FraudDetectionIaAuthServiceApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(FraudDetectionIaAuthServiceApplication.class, args);
+        System.out.println("SALAAAAAAAAAAAAAAAAM!!!!! :) eh");
     }
 
 }
